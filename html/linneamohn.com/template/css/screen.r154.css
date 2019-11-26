@@ -1,0 +1,398 @@
+/* @override 
+	http://rivet.com/site/css/screen.r116.css
+	
+	Main Rivet CSS sheet.
+	All styles here are shared by any site using this template.
+	Site specific styles are included elsewhere.
+*/
+
+/* @group CSS Reset */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin: 0; padding: 0;  border: 0;  outline: 0; font-weight: inherit; font-style: inherit; font-family: inherit; vertical-align: baseline;}
+html {font-size:100.01%;}
+/* remember to define focus styles! */
+:focus {outline: 0;}
+body {line-height: 1em; color: white; background: #333;}
+ol, ul {list-style: none;}
+/* tables still need 'cellspacing="0"' in the markup */
+table {border-collapse: separate; border-spacing: 0;}
+caption, th, td {text-align: left; font-weight: normal;}
+blockquote:before, blockquote:after, q:before, q:after {content: "";}
+blockquote, q {quotes: "" "";}
+:link img {border: 0px none;}
+img, a img {padding:0; margin:0; border:none; display:block;}
+strong {font-weight:bold;}
+em {font-style:italic;}
+ 
+/* !MAIN TYPOGRAPHY  ============*/
+ 
+p, h1, h2, h3, li {font-family:Arial, Helvetica, sans-serif;}
+ 
+p {
+    font-size:12px;
+    line-height:18px;
+    margin:0 0 12px 0;
+}
+ 
+p a, p a:visited {
+	color:lightgoldenrodyellow; 
+	text-decoration:underline; 
+	font-weight: bold;
+}
+
+ul li, ul li a { font-size:12px; line-height:16px; margin:0;}
+ 
+h1 {
+    font-size:30px;
+    color:#ff3300;
+    line-height:30px;
+    font-weight:normal;
+    margin:0 0 12px 0;
+    width:300px;
+}
+h2 {color:rgb(30,30,30); font-size:14px; line-height:18px; font-weight:bold; margin:9px 0;}
+h3 {text-transform: uppercase;letter-spacing:1px;font-size: 11px;color:#f7ff7e;}
+
+/* @end */
+
+/* @group BASE */
+
+#content {
+    position: relative;
+    top:0;
+    left:0px;
+    width:450px;
+    height:200px;
+    z-index:300; /*ie6&7 fix*/
+}
+
+#badge {
+    position: absolute; top: 45px; left:15px;
+    z-index: 10;
+    text-indent: -9000px;
+    padding: 0;
+    margin: 0;
+}
+
+div.nav {
+    padding: 0 0 3px 0;
+    display: block;
+    background-color: black;
+}
+
+
+#nav {
+    width:auto;
+    background-color: black;
+    padding: 6px 4px 6px 38px;
+    margin:0;
+}
+
+#nav li {
+    display: inline;
+    margin-left: 0px;
+}
+
+#nav li a {
+    border: 1px solid black;
+    display: inline;
+    padding:4px 6px 6px 6px;
+    color:white;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration:none;
+}
+
+#nav li a.on,
+#nav li a.on:hover {
+    color:yellow;
+    border-color: black;
+}
+
+#nav li a:hover {
+    border-color:#666;
+}
+
+
+div.section {
+    position: absolute;
+    top:40px;
+    z-index: 102;
+    height:auto;
+    background-color: black;
+    xbackground-color:rgba(0, 0, 0, 0.85);
+    width:100%;
+    border:4px solid #333;
+    border-width: 4px 4px 4px 0;
+}
+
+div.section p {
+    color:white;
+}
+
+div.stuff {
+    width:auto;
+    margin:0 20px;
+    padding-bottom: 10px;
+}
+
+div.stuff h2 {
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: normal;
+    color: #f7ff7e;
+}
+
+div.hidden {
+    display:none;
+}
+
+a.close-section {
+    text-indent: -9999em;
+    position:absolute;
+    width:30px;
+    height:30px;
+    top:-8px;
+    right:-18px;
+    background:transparent url(sprite.png) -120px 0px no-repeat;
+    xborder:1px solid red;
+}
+
+a.close-section:hover {
+    background:transparent url(sprite.png) -152px 0px no-repeat;
+}
+
+/* @end */
+
+/* @group SOUNDMANAGER */
+
+#soundmanager-debug {
+ /* SM2 debug container (optional, makes debug more useable) */
+position:absolute;position:fixed;*position:absolute;bottom:10px;right:10px;width:50em;height:18em;overflow:auto;background:#fff;margin:1em;padding:1em;border:1px solid #999;font-family:"lucida console",verdana,tahoma,"sans serif";font-size:x-small;line-height:1.5em;opacity:0.9;filter:alpha(opacity=90);
+display:none;
+}
+
+#sm2-container {
+    /* flash container */
+    position:absolute; top:10px; left:-4500px;
+    width:50px;
+    height:50px;
+    background-color: transparent;
+    border:3px solid red;
+}
+
+#sm2-container.swf_timedout {
+    position:absolute; top:10px; left:450px;
+}
+
+#sm2-container.swf_unblocked {
+    position:absolute; top:10px; left:-4500px;
+}
+
+#sm2-container.swf_error {
+  /* "Fatal" error case: SWF loaded,
+  but SM2 was unable to start for some reason.
+  (Flash security or other error case.) */
+}
+#sm2-container.high_performance {
+  /* Additional modifier for "high performance" mode
+  should apply position:fixed and left/bottom 0 to stay on-screen
+  at all times (better flash performance) */
+}
+#sm2-container.flash_debug {
+  /* Additional modifier for flash debug output mode
+  should use width/height 100% so you can read debug messages */
+}
+
+ul.playlist {
+ list-style-type:none;
+ margin:-12px 0 12px 0;
+ padding:0px;
+ width:100%;
+}
+
+ul.playlist li {
+    /* assume all items will be sounds rather than wait for onload etc. 
+    in this example.. may differ for your uses. */
+    position:relative;
+    display:block;
+    width:auto;
+    padding:0;
+    border:none;
+    -webkit-transition-property: hover;
+    -webkit-transition: background-color 0.15s ease-in-out;
+}
+
+ul.playlist li a {
+    font-family: Helvetica, Arial, serif;
+    font-size:15px;
+    color:white;
+    text-decoration: none;
+    display: block;
+    width:100%;
+    padding: 7px 0 7px 20px;
+    xborder: 1px solid black;
+
+    font-weight:normal;
+    line-height: 20px;
+    outline:none;
+}
+
+ul.playlist li a span.album {
+    font-size:10px;
+    color:#999;
+    text-transform: uppercase;
+    font-weight:bold;
+    padding-left:3px;    
+}
+
+ul.playlist li.sm2_playing,
+ul.playlist li.sm2_paused,
+ul.playlist li.sm2_playing a {
+ color:#fff;
+}
+
+ul.playlist li:hover {
+ background-color:#222;
+}
+
+ul.playlist li:hover a {
+ color:white;
+}
+
+ul.playlist li.sm2_playing,
+ul.playlist li.sm2_playing:hover {
+ background:#004080 url(sprite.png) left bottom repeat-x;
+}
+
+ul.playlist li.sm2_paused {
+ background-color:#5d6c80;
+}
+
+ul.playlist li.sm2_playing:hover a,
+ul.playlist li.sm2_paused a {
+ color:#fff;
+}
+
+
+#controls {
+    background-color: black;
+    position: relative;
+    width:423px;
+    height:2px;
+    margin-left: 24px; /*used to line up with the play button...*/
+}
+
+#status {
+    position:absolute;
+    top:0; left:0;
+    z-index:10;
+    height:2px;
+    background-color:yellow;
+    width:0px;
+}
+
+#loading {
+    position:absolute;
+    top:0; left:0;
+    z-index:9;
+    height:2px;
+    background-color:#666;
+    width:0px;
+}
+
+#playbutton {
+    width:45px; height:45px;
+    background:transparent url(sprite.png) left top no-repeat;
+    margin:0;
+    position: absolute;
+    top:-6px; left:-12px;
+}
+
+#playbutton.pause {
+    background:transparent url(sprite.png) -54px top no-repeat;
+}
+
+#playbutton.play {
+    background:transparent url(sprite.png) left top no-repeat;
+}
+
+#playbutton.hidden{
+    display: none;
+}
+
+/* @end */
+
+/* @group SLIDESHOW */
+
+div.bg {
+    position:absolute;
+    top:0; left:0;
+}
+
+div.hidden {
+    position:absolute;
+    overflow:hidden;
+    top:0; left:-9999em;
+}
+
+div.on {
+    position:absolute;
+    top:0; left:0;
+    overflow:hidden;
+}
+
+div.bg p.caption {
+    position:absolute;
+    bottom: 0px;
+    left: 0px;
+    width: auto;
+    max-width:400px;
+    margin:0;
+    text-align: left;
+    font-size: 11px;
+    color:#aaa;
+    z-index:1;
+    padding:0 10px;
+    background-color: black;
+    background-color: rgba(0,0,0,.75);
+}
+
+img.bg {
+    position:relative;
+    display:block;
+    left:0;
+    top:0;
+    z-index: 0;
+    -ms-interpolation-mode:bicubic;    
+}
+
+#nextwrap {
+    position:absolute;
+    top:12px;
+    right:12px;
+    z-index: 101;
+    display:none;
+    height:58px;
+    width:58px;
+    background:transparent url(sprite.png) right 2px no-repeat;    
+}
+
+#next-button {
+    display: block;
+    height: 58px;
+    width: 58px;
+    text-indent: -9000em;
+    border:1px solid transparent;
+}
+
+#next-button:hover {
+	border: 1px solid yellow;
+}
+
+/* @end */
+
+#firebug-toolbar {
+
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title>Linnea Mohn - Voiceovers and music</title>
+    
+    <link rel="stylesheet" href="template/css/screen.r154.css" type="text/css" media="screen">
+    <script type="text/javascript" src="template/js/built.js"></script>
+
+
+    <!-- <script type="text/javascript" src="template/js/dojo.js" djConfig="isDebug: true, parseOnLaod:true"></script>
+    <script type="text/javascript" src="template/js/soundmanager2-jsmin.js"></script>
+    <script type="text/javascript" src="template/js/soundManagerConfig.js"></script>
+    <script type="text/javascript" src="template/js/smdojo.js"></script>
+    <script type="text/javascript" src="template/js/ss1.js"></script>
+    <script type="text/javascript" src="template/js/sections.js"></script> -->
+
+
+    <!-- iphone styling -->
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0" >
+    <link media="only screen and (max-device-width: 480px)" href="template/css/iphone.r116.css" type= "text/css" rel="stylesheet">
+
+    
+    <!-- Linnea specific styles -->
+    <style type="text/css">#badge { width:330px; height:135px; background: transparent url(content/badge.png) top left no-repeat; }</style>
+    
+    <meta name="description" content="Voiceover reel, music sampler, and bio for Linnea Mohn, an actress and musician based in Minneapolis, MN" >
+    <link rel="icon" type="image/png" href="template/favicon.ico">
+</head>
+
+<body>
+
+<h1 id="badge">Linnea Mohn</h1>
+<img id="default-background" src="content/bg/bwglow2.jpg" />
+<div  id="backgrounds"></div>
+
+<div id="content">
+    <div class="nav">
+        <div id="controls"><div id="status"></div><div id="loading"></div></div><!-- end controls -->
+        <a id="playbutton" class="hidden" title="Click to Play" href="/"></a>
+        <ul id="nav"></ul>
+    </div><!-- end nav -->
+
+            
+        <div class="section" id="voiceover">
+            <div class="stuff">
+                <h2>Voiceover</h2>
+                <p>Here's my demo. Have a listen. Let's work together.</p>
+            </div>
+            <ul class="playlist"><li><a class="singleton" rel="vo" href="">DEMO <span class="album">Click to Play</span></a></li></ul>        </div>
+            
+        <div class="section" id="music">
+            <div class="stuff">
+                <h2>Music</h2>
+                
+            </div>
+            <ul class="playlist"><li class="first"><a rel="rv_02RedRiveroftheNorth" href="">Red River of the North <span class="album">Rogue Valley</span></a></li> <li><a rel="rv_05Hummingbird1" href="">Hummingbird <span class="album">Rogue Valley</span></a></li> <li><a rel="rv_07RopeSwingOverRogueValley" href="">Rope Swing <span class="album">Rogue Valley</span></a></li> <li><a rel="rv_08UrsaMinor" href="">Ursa Minor <span class="album">Rogue Valley</span></a></li>
+<li><a rel="ac_02NoOneElse" href="">No One Else <span class="album">Alpha Centauri</span></a></li> <li><a rel="ac_03BoysAndGirls" href="">Boys and Girls <span class="album">Alpha Centauri</span></a></li> <li><a rel="ac_05Electrostatic" href="">Electrostatic <span class="album">Alpha Centauri</span></a></li> <li><a rel="ac_09KeepOurCardsClose" href="">Keep Our Cards Close <span class="album">Alpha Centauri</span></a></li>
+<li><a rel="coach_silentlyyousing" href="">Silently You Sing and Scream <span class="album">Coach Said Not To</span></a></li> <li><a rel="coach_anyyetstill" href="">Any Yet Still <span class="album">Coach Said Not To</span></a></li></ul>        </div>
+            
+        <div class="section" id="bands">
+            <div class="stuff">
+                <h2>Bands</h2>
+                <p><a href="http://www.lostinroguevalley.com/RV/">Rogue Valley</a></p>
+            </div>
+                    </div>
+            
+        <div class="section" id="about">
+            <div class="stuff">
+                <h2>About</h2>
+                <p>linneaawake@gmail.com</p>
+            </div>
+                    </div>
+    
+</div><!-- end content -->
+
+</body>
+<script type="text/javascript">    
+    
+    dojo.addOnLoad(function(){
+        var isiPhone = ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)))?true:false;
+        if (!isiPhone) {
+            // quick hide of the content area
+            dojo.addClass(dojo.byId('content'), 'hidden'); 
+    
+            // plumb up the sections
+            dojo.require('rvsection');
+            rivetSection = new RivetSection({baseid:'nav'});
+            
+            // load the slideshow
+            dojo.require('ss');    
+            ss = new SS({
+                pics:[{"file":"bwglow2.jpg","caption":"coyishness"},{"file":"tripleface4.jpg","caption":"whoa! arty!"},{"file":"music3.jpg","caption":"music music music"},{"file":"basslinnea.jpg","caption":"b-b-b-b-bass"},{"file":"alphapunch.jpg","caption":"kapow"},{"file":"rv_scohen.jpg","caption":"caption"},{"file":"tac_vid1.jpg","caption":"caption"},{"file":"tac_vid2.jpg","caption":"caption"},{"file":"tac_vid3.jpg","caption":"caption"},{"file":"tac_vid4.jpg","caption":"caption"},{"file":"coachpool003.jpg","caption":"coach said not to hanging by the pool."}],
+                path:'content/bg/',
+                baseid:'backgrounds'
+            });
+
+        } // end not iphone
+
+        // plumb up the player
+        pp = new SmDojo('content/audio_099r2ppn6/');
+        soundManager.onready(function() {
+          if (soundManager.supported()) {
+            pp.init();
+          }
+        });
+
+    });
+    
+</script>
+
+</html>
